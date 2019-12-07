@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 49845442}
   m_Layer: 0
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 708845256}
   m_Layer: 0
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,6 +882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.3
+  movespeed: 5
+  jumpSpeed: 6
 --- !u!1 &1304864969
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +898,7 @@ GameObject:
   - component: {fileID: 1304864971}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

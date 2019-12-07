@@ -5,10 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float Speed;
-    // Start is called before the first frame update
+    public float movespeed;
+    public float jumpSpeed;
+    private Rigidbody2D rb;
+    private bool isJumping = false;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -17,12 +21,25 @@ public class Player : MonoBehaviour
         //移動
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.position += new Vector3(-Speed, 0,0);
+            this.transform.position += new Vector3(-Speed, 0, 0);
         }
 
-       else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             this.transform.position += new Vector3(Speed, 0, 0);
+        }
+        if(Input.GetButtonDown("Jump") && isJumping == false)
+        {
+            rb.velocity = Vector2.up * jumpSpeed;
+            isJumping = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Floor"))
+        {
+            isJumping = false;
         }
     }
 }
