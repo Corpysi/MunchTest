@@ -6,6 +6,11 @@ public class Goal : MonoBehaviour
 {
     bool GoalDestroyFlag = false;
 
+    public GameObject GoalEffect;
+    public GameObject GoalText;
+
+    public GameObject NormalText;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -20,6 +25,7 @@ public class Goal : MonoBehaviour
         if (GoalDestroyFlag)
         {
             GoalDestroy();
+            SetGoalEffect();
             GoalDestroyFlag = true;
         }
     }
@@ -27,5 +33,12 @@ public class Goal : MonoBehaviour
     void GoalDestroy()
     {
         Destroy(gameObject, 0.5f);
+    }
+
+    void SetGoalEffect()
+    {
+        NormalText.SetActive(false);
+        GoalEffect.SetActive(true);
+        GoalText.SetActive(true);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float Speed;
-    public float movespeed;
     public float jumpSpeed;
     private Rigidbody2D rb;
     private bool isJumping = false;
@@ -21,12 +20,12 @@ public class Player : MonoBehaviour
         //移動
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.position += new Vector3(-Speed, 0, 0);
+            this.transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            this.transform.position += new Vector3(Speed, 0, 0);
+            this.transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
         }
         if(Input.GetButtonDown("Jump") && isJumping == false)
         {
